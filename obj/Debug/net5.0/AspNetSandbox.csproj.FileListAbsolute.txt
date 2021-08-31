@@ -38,3 +38,8 @@ C:\Back-End\AspNetSandbox\obj\Debug\net5.0\ref\AspNetSandbox.dll
 C:\Back-End\AspNetSandbox\obj\Debug\net5.0\AspNetSandbox.pdb
 C:\Back-End\AspNetSandbox\obj\Debug\net5.0\AspNetSandbox.genruntimeconfig.cache
 C:\Back-End\AspNetSandbox\obj\Debug\net5.0\AspNetSandbox.csproj.CopyComplete
+C:\Back-End\AspNetSandbox\obj\Debug\net5.0\AspNetSandbox.MvcApplicationPartsAssemblyInfo.cs
+C:\Back-End\AspNetSandbox\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Back-End\AspNetSandbox\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Back-End\AspNetSandbox\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Back-End\AspNetSandbox\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
