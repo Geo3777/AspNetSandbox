@@ -1,71 +1,141 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
-}
-
-/* Provide sufficient contrast against white background */
-a {
-  color: #0366d6;
-}
-
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  font-size: 14px;
-}
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
-}
-
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
-}
-
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-  position: relative;
-  min-height: 100%;
+﻿*:focus {
+    outline: none;
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+    margin: 0px;
 }
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    height: 100vh;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 5px;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    margin-bottom: 10vh;
+}
+
+.searchBar {
+    min-width: 35vw;
+    border-radius: 5vh;
+    height: 3vh;
+    border: 1px solid #ccc;
+    margin-top: 3vh;
+    padding: 10px;
+}
+
+.googleImage {
+    min-width: 10vw;
+    height: auto;
+    margin-top: 12vh;
+}
+
+.romaniaBar,
+.otherBar {
+    width: 100%;
+    display: flex;
+    color: rgb(92, 92, 92);
+}
+
+.otherBar {
+    border-top: 1px solid rgb(155, 155, 155);
+    display: flex;
+    justify-content: space-between;
+}
+
+.barButton {
+    margin: 15px;
+}
+
+.buttonSection {
+    margin-top: 10px;
+}
+
+    .buttonSection button {
+        border-radius: 10px;
+        border: transparent;
+        padding: 10px;
+        min-width: 40px;
+        margin-top: 15px;
+        text-overflow: ellipsis;
+        resize: none;
+    }
+
+button:hover {
+    cursor: pointer;
+}
+
+.section1,
+.section2 {
+    display: flex;
+}
+
+.linkss {
+    margin-right: 15px;
+}
+
+.right {
+    border-radius: 50%;
+    margin-left: 15px;
+}
+
+.gb_Ve {
+    width: 1.5%;
+}
+
+mark.blue {
+    color: #0000a0;
+    background: none;
+}
+
+.offer {
+    margin-top: 30px;
+}
+
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    margin: 0px;
+    background-color: rgb(231, 230, 230);
+}
+
+@media only screen and (max-device-width: 700px) {
+    .otherBar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .body {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .barButton {
+        margin: 5px;
+        text-align: center;
+        width: 25%;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 1.2em;
+        white-space: nowrap;
+    }
+
+    .searchBar {
+        width: 80vw;
+    }
 }
