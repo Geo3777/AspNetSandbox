@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31624.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSandbox", "AspNetSandbox.csproj", "{EA90C65B-9279-4810-B897-BBC9F9D347F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSandbox", "AspNetSandbox\AspNetSandbox.csproj", "{BB8EF3E3-8178-439F-B404-B2CC9603156A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetSandbox.text", "AspNetSandbox.text\AspNetSandbox.text.csproj", "{69F1B3B3-A0B0-4987-B9EC-91C7FA3063C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EA90C65B-9279-4810-B897-BBC9F9D347F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA90C65B-9279-4810-B897-BBC9F9D347F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA90C65B-9279-4810-B897-BBC9F9D347F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA90C65B-9279-4810-B897-BBC9F9D347F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB8EF3E3-8178-439F-B404-B2CC9603156A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB8EF3E3-8178-439F-B404-B2CC9603156A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB8EF3E3-8178-439F-B404-B2CC9603156A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB8EF3E3-8178-439F-B404-B2CC9603156A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69F1B3B3-A0B0-4987-B9EC-91C7FA3063C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69F1B3B3-A0B0-4987-B9EC-91C7FA3063C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69F1B3B3-A0B0-4987-B9EC-91C7FA3063C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69F1B3B3-A0B0-4987-B9EC-91C7FA3063C3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
