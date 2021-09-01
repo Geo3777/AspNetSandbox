@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="/lib/main.css" />
-
 </head>
 <body>
     <div class="container">
@@ -40,6 +39,12 @@
             </p>
         </div>
 
+        <div class="textareaa">
+            <textarea id="weatherForecast">
+                 
+            </textarea>
+        </div>
+
         <div class="footer">
             <div class="romaniaBar">
                 <p class="barButton">Romania</p>
@@ -61,7 +66,7 @@
             </div>
         </div>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js" />
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script>
         var settings = {
             "url": "https://localhost:5001/WeatherForecast",
@@ -71,6 +76,8 @@
 
         $.ajax(settings).done(function (response) {
             console.log(response);
+            document.getElementById("weatherForecast").textContent ="The weather for tomorrow is: "+ response[0].summary;
+            //$("weatherForecast").val("The weather for tomorrow is:" + response[0].summary);
         });
     </script>
 </body>

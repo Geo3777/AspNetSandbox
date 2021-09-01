@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "TYkrrZj2/8wy+MUO30X0tQiEhz5vungsYrLcXWmTfWJ53T169psR7KSdxkFFV7bK2svukF2VHvLmxlfyeMn92A==",
+  "dgSpecHash": "PqssAmCBMIcfOQUTrPI8Jz04nc70wNpPyCfqW9DD7WVz51SZ1/Hfrc7m6FjfoluYfJ0NWxt85b4DLZ8fWMARGw==",
   "success": true,
   "projectFilePath": "C:\\Back-End\\AspNetSandbox\\AspNetSandbox.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\George\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\George\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\George\\.nuget\\packages\\restsharp\\106.12.0\\restsharp.106.12.0.nupkg.sha512",
     "C:\\Users\\George\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.1\\swashbuckle.aspnetcore.6.2.1.nupkg.sha512",
     "C:\\Users\\George\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.2.1\\swashbuckle.aspnetcore.swagger.6.2.1.nupkg.sha512",
     "C:\\Users\\George\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.2.1\\swashbuckle.aspnetcore.swaggergen.6.2.1.nupkg.sha512",

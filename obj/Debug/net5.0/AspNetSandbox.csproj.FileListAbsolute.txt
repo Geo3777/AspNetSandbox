@@ -44,3 +44,4 @@ C:\Back-End\AspNetSandbox\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Back-End\AspNetSandbox\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Back-End\AspNetSandbox\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Back-End\AspNetSandbox\bin\Debug\net5.0\QA\OpenWheatherApi.postman_collection.json
+C:\Back-End\AspNetSandbox\bin\Debug\net5.0\RestSharp.dll
