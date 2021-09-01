@@ -1,0 +1,41 @@
+{
+	"info": {
+		"_postman_id": "db4c73d3-ead4-40a3-b50b-bcfa5dd1ae07",
+		"name": "OpenWheatherApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=b509889970fc2b771cf13e4dfde7d0ee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=b509889970fc2b771cf13e4dfde7d0ee",
+					"protocol": "http",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "London,uk"
+						},
+						{
+							"key": "APPID",
+							"value": "b509889970fc2b771cf13e4dfde7d0ee"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
