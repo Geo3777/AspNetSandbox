@@ -47,7 +47,7 @@ namespace AspNetSandbox.Controllers
             //}
         }
 
-        private IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string Content)
+        private static IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content)
         {
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
