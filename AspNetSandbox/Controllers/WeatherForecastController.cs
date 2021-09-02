@@ -13,16 +13,6 @@ namespace AspNetSandbox.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
-        static string apiKey = "0b0f282945e089f1487e3e8dbccadaf3";
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        public WeatherForecastController()
-        {
-
-        }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
@@ -32,40 +22,29 @@ namespace AspNetSandbox.Controllers
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
             Console.WriteLine(response.Content);
-
             return ConvertResponseToWeatherForecast(response.Content);
-
-            //var rng = new Random();
-            //return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            //{
-            //    Date = DateTime.Now.AddDays(index),
-            //    TemperatureC = rng.Next(-20, 55),
-            //    Summary = Summaries[rng.Next(Summaries.Length)]
-            //})
-            //.ToArray();
-            
         }
 
-        public IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content)
+        public IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content, int days = 5)
         {
 
             var json = JObject.Parse(content);
-
             var rng = new Random();
-
-            return Enumerable.Range(1, 5).Select(index =>
+            const float KELVIN_CONST = 273.15f;
+            
+            return Enumerable.Range(1, days).Select(index =>
             {
                 var jsonDailyForecast = json["daily"][index];
                 var unixDateTime = jsonDailyForecast.Value<long>("dt");
+                var weatherSummary = jsonDailyForecast["weather"][0].Value<string>("main");
                 return new WeatherForecast
                 {
                     Date = DateTimeOffset.FromUnixTimeSeconds(unixDateTime).Date,
-                    TemperatureC = (int)Math.Round(jsonDailyForecast["temp"].Value<float>("day") - 273.15f),
-                    Summary = jsonDailyForecast["weather"][0].Value<string>("main")
+                    TemperatureC = (int)Math.Round(jsonDailyForecast["temp"].Value<float>("day") - KELVIN_CONST),
+                    Summary = weatherSummary
                 };
             })
             .ToArray();
-
         }
     }
 }
