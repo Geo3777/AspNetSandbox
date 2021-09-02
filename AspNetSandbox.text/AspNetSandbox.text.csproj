@@ -8,10 +8,12 @@
 
   <ItemGroup>
     <None Remove="DataFromOpenWeatherApi.json" />
+    <None Remove="DataFromOpenWeatherCityCoordApi.json" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="DataFromOpenWeatherApi.json" />
+    <EmbeddedResource Include="DataFromOpenWeatherCityCoordApi.json" />
   </ItemGroup>
 
   <ItemGroup>

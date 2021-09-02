@@ -17,7 +17,7 @@ namespace AspNetSandbox.Controllers
         private const float KELVIN_CONST = 273.15f;
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
-        {
+        { 
             var client = new RestClient("https://api.openweathermap.org/data/2.5/onecall?lat=35.652832&lon=139.839478&exclude=hourly,minutely&appid=b509889970fc2b771cf13e4dfde7d0ee");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
@@ -53,4 +53,53 @@ namespace AspNetSandbox.Controllers
 
 
     }
+    public class WeatherForecastControllerCityCoord : ControllerBase
+    {
+
+        private const float KELVIN_CONST = 273.15f;
+        [HttpGet]
+        public IEnumerable<WeatherForecast> Get()
+        {
+            var client = new RestClient("api.openweathermap.org/data/2.5/weather?lat=-0.1257&lon=51.5085&q=London&appid=b509889970fc2b771cf13e4dfde7d0ee");
+            client.Timeout = -1;
+            var request = new RestRequest(Method.GET);
+            IRestResponse response = client.Execute(request);
+            Console.WriteLine(response.Content);
+            return ConvertResponseToWeatherForecastCityCoord(response.Content);
+        }
+
+        public IEnumerable<WeatherForecast> ConvertResponseToWeatherForecastCityCoord(string content, int days = 5)
+        {
+
+            var jsonCity = JObject.Parse(content);
+
+            return Enumerable.Range(1, days).Select(index =>
+            {
+                var lat = jsonCity["coord"]["lat"];
+                var lon = jsonCity["coord"]["lon"];
+                var name = jsonCity["name"];
+                //var jsonDailyForecast = jsonCity["daily"][index];
+                //var unixDateTime = jsonDailyForecast.Value<long>("dt");
+                //var weatherSummary = jsonDailyForecast["weather"][0].Value<string>("main");
+                return new WeatherForecast
+                {
+                    //Date = DateTimeOffset.FromUnixTimeSeconds(unixDateTime).Date,
+                    //TemperatureC = ExtractCelsiusFromWeather(jsonDailyForecast),
+                    //Summary = weatherSummary
+                    Latitude = lat,
+                    Longitude = lon,
+                    Name = name,
+                };
+            })
+            .ToArray();
+        }
+
+        private static int ExtractCelsiusFromWeather(JToken jsonDaileyForecast)
+        {
+            return (int)Math.Round(jsonDaileyForecast["temp"].Value<float>("day") - KELVIN_CONST);
+        }
+
+
+    }
+
 }
