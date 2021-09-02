@@ -13,55 +13,59 @@ namespace AspNetSandbox.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
+        static string apiKey = "0b0f282945e089f1487e3e8dbccadaf3";
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-       
-
         public WeatherForecastController()
         {
-            
+
         }
 
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            var client = new RestClient("http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=b509889970fc2b771cf13e4dfde7d0ee");
+            var client = new RestClient("https://api.openweathermap.org/data/2.5/onecall?lat=35.652832&lon=139.839478&exclude=hourly,minutely&appid=b509889970fc2b771cf13e4dfde7d0ee");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
             Console.WriteLine(response.Content);
+
             return ConvertResponseToWeatherForecast(response.Content);
 
-        //    var rng = new Random();
-        //    return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        //    {
-        //        Date = DateTime.Now.AddDays(index),
-        //        TemperatureC = rng.Next(-20, 55),
-        //        Summary = Summaries[rng.Next(Summaries.Length)]
-        //    })
-        //    .ToArray();
-
-            //http://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=b509889970fc2b771cf13e4dfde7d0ee
-            //}
+            //var rng = new Random();
+            //return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            //{
+            //    Date = DateTime.Now.AddDays(index),
+            //    TemperatureC = rng.Next(-20, 55),
+            //    Summary = Summaries[rng.Next(Summaries.Length)]
+            //})
+            //.ToArray();
+            
         }
 
-        public static IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string Content)
+        public IEnumerable<WeatherForecast> ConvertResponseToWeatherForecast(string content)
         {
-            
-            var json = JObject.Parse(Content);
+
+            var json = JObject.Parse(content);
 
             var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                Date = DateTime.Now.AddDays(index),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = json["weather"][0].Value<string>("main")
 
+            return Enumerable.Range(1, 5).Select(index =>
+            {
+                var jsonDailyForecast = json["daily"][index];
+                var unixDateTime = jsonDailyForecast.Value<long>("dt");
+                return new WeatherForecast
+                {
+                    Date = DateTimeOffset.FromUnixTimeSeconds(unixDateTime).Date,
+                    TemperatureC = (int)Math.Round(jsonDailyForecast["temp"].Value<float>("day") - 273.15f),
+                    Summary = jsonDailyForecast["weather"][0].Value<string>("main")
+                };
             })
             .ToArray();
+
         }
     }
 }
