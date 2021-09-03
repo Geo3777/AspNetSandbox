@@ -17,10 +17,16 @@ namespace AspNetSandbox
         {
             books = new Book[2];
             books[0] = new Book();
-            books[0].id = 0;
+            books[0].id = 1;
             books[0].title = "War Hero";
             books[0].Language = "English";
             books[0].author = "Sven";
+      
+            books[1] = new Book();
+            books[1].id = 1;
+            books[1].title = "War Hero";
+            books[1].Language = "English";
+            books[1].author = "Sven";
 
         }
         // GET: api/<BooksController>
