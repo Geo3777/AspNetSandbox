@@ -16,4 +16,5 @@ namespace AspNetSandbox
         public JToken Longitude { get; internal set; }
         public JToken Name { get; internal set; }
     }
+
 }

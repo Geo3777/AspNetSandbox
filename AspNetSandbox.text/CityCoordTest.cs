@@ -5,20 +5,20 @@ using Xunit;
 
 namespace AspNetSandbox.Tests
 {
-    public class WeatherForecastCityCoordTest
+    public class CityCoordTest
     {
         [Fact]
         public void ConvertResponseToWeatherForecastLatitudeTest()
         {
             //Asume
             string content = LoadJsonFromResource1();
-            var controller = new WeatherForecastControllerCityCoord();
+            var controller = new CityCoordonatesController();
 
             // Act
             var output = controller.ConvertResponseToWeatherForecastCityCoord(content);
            
             // Assert
-            var weatherForecastForTomorrow = ((WeatherForecast[])output)[0];
+            var weatherForecastForTomorrow = ((CityCoordonates[])output)[0];
             Assert.Equal("51.5085", weatherForecastForTomorrow.Latitude);
         }
         [Fact]
@@ -26,13 +26,13 @@ namespace AspNetSandbox.Tests
         {
             //Asume
             string content = LoadJsonFromResource1();
-            var controller = new WeatherForecastControllerCityCoord();
+            var controller = new CityCoordonatesController();
 
             // Act
             var output = controller.ConvertResponseToWeatherForecastCityCoord(content);
 
             // Assert
-            var weatherForecastForTomorrow = ((WeatherForecast[])output)[0];
+            var weatherForecastForTomorrow = ((CityCoordonates[])output)[0];
             Assert.Equal("-0.1257", weatherForecastForTomorrow.Longitude);
         }
         [Fact]
@@ -40,13 +40,13 @@ namespace AspNetSandbox.Tests
         {
             //Asume
             string content = LoadJsonFromResource1();
-            var controller = new WeatherForecastControllerCityCoord();
+            var controller = new CityCoordonatesController();
 
             // Act
             var output = controller.ConvertResponseToWeatherForecastCityCoord(content);
 
             // Assert
-            var weatherForecastForTomorrow = ((WeatherForecast[])output)[0];
+            var weatherForecastForTomorrow = ((CityCoordonates[])output)[0];
             Assert.Equal("London", weatherForecastForTomorrow.Name);
         }
 
