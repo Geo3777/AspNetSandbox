@@ -8,12 +8,14 @@ using Newtonsoft.Json.Linq;
 using RestSharp;
 namespace AspNetSandbox.Controllers
 {
+    [ApiController]
+    [Route("[controller]")]
     public class CityCoordonatesController : ControllerBase
     {
         [HttpGet]
         public IEnumerable<CityCoordonates> Get()
         {
-            var client = new RestClient("api.openweathermap.org/data/2.5/weather?lat=-0.1257&lon=51.5085&q=London&appid=b509889970fc2b771cf13e4dfde7d0ee");
+            var client = new RestClient("https://api.openweathermap.org/data/2.5/weather?lat=-0.1257&lon=51.5085&q=London&appid=b509889970fc2b771cf13e4dfde7d0ee");
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);

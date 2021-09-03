@@ -76,7 +76,7 @@
 
         $.ajax(settings).done(function (response) {
             console.log(response);
-            document.getElementById("weatherForecast").textContent ="The weather for tomorrow is: "+ response[0].summary;
+            document.getElementById("weatherForecast").textContent ="The weather for tomorrow is: "+ response[0].summary;//aici pui ce vrei sa afiseze din clasa
             //$("weatherForecast").val("The weather for tomorrow is:" + response[0].summary);
         });
     </script>
