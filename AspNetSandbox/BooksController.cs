@@ -16,31 +16,35 @@ namespace AspNetSandbox
         public BooksController()
         {
             books = new Book[2];
-            books[0] = new Book();
-            books[0].id = 1;
-            books[0].title = "War Hero";
-            books[0].Language = "English";
-            books[0].author = "Sven";
-      
-            books[1] = new Book();
-            books[1].id = 1;
-            books[1].title = "War Hero";
-            books[1].Language = "English";
-            books[1].author = "Sven";
+            books[0] = new Book
+            {
+                Id = 1,
+                title = "War Hero",
+                Language = "English",
+                author = "Sven"
+            };
+
+            books[1] = new Book
+            {
+                Id = 2,
+                title = "War Hero",
+                Language = "English",
+                author = "Sven"
+            };
 
         }
         // GET: api/<BooksController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Book> Get()
         {
-            return new string[] { "value1", "value2" };
+            return books;
         }
 
         // GET api/<BooksController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Book Get(int id)
         {
-            return "value";
+            return books.Single(book => book.Id == id);
         }
 
         // POST api/<BooksController>
