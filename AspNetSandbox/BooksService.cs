@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace AspNetSandbox
 {
+
     public class BooksService : IBooksService
     {
         private List<Book> books;
@@ -39,21 +40,38 @@ namespace AspNetSandbox
             return books.Single(book => book.Id == id);
         }
 
+        // Instantiate random number generator.  
+        private readonly Random _random = new Random();
+
+        // Generates a random number within a range.      
+        public int RandomNumber(int min, int max)
+        {
+            return _random.Next(min, max);
+        }
+
         public void Post(Book value)
         {
-            int id = books.Count + 1;
+            CountMemory.count = CountMemory.count + 1;
+            int id = CountMemory.count;
+            //int id = RandomNumber(100,1000);
             value.Id = id;
             books.Add(value);
         }
 
-        public void Put(int id, string value)
+        public void Put(int id, Book value)
         {
-
+            var index = books.FindIndex(book => book.Id == id);
+            books[index] = value;
         }
 
         public void Delete(int id)
         {
             books.Remove(Get(id));
         }
+    }
+    public static class CountMemory
+    {
+        public static int count = 2;
+        
     }
 }

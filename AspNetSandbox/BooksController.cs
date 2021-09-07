@@ -41,9 +41,9 @@ namespace AspNetSandbox
 
         // PUT api/<BooksController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, [FromBody] Book value)
         {
-
+            booksService.Put(id, value);
         }
 
         // DELETE api/<BooksController>/5

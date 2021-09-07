@@ -7,9 +7,10 @@ using Xunit;
 
 namespace AspNetSandbox.Tests
 {
-    class BooksServiceTest
+    public class BooksServiceTest
     {
-        public static void ShouldHaveLondonCoordinates()
+        [Fact]
+        public static void BookIdTest()
         {
             // Assume
             var booksService = new BooksService();
@@ -18,21 +19,21 @@ namespace AspNetSandbox.Tests
             // Act
             booksService.Post(new Book
             {
-                title = "Psyho ABC",
-                author = "John",
+                title = "Book1",
+                author = "Author1",
                 Language = "Romanian"
             });
 
             booksService.Delete(2);
             booksService.Post(new Book
             {
-                title = "The art of not giving a f..",
-                author = "Tom example",
+                title = "Book2",
+                author = "Author2",
                 Language = "English"
             });
 
             //Assert
-            Assert.Equal("Psyho ABC", booksService.Get(3).title);
+            Assert.Equal("Book1", booksService.Get(3).title);
         }
     }
 }
