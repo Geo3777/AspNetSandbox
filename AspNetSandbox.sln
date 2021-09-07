@@ -10,6 +10,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSandbox.text", "AspNe
 		{BB8EF3E3-8178-439F-B404-B2CC9603156A} = {BB8EF3E3-8178-439F-B404-B2CC9603156A}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockkerSandbox", "DockkerSandbox\DockkerSandbox.csproj", "{92FB6DAD-48CD-4947-AD53-FFCB51ECA51C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{69F1B3B3-A0B0-4987-B9EC-91C7FA3063C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{69F1B3B3-A0B0-4987-B9EC-91C7FA3063C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{69F1B3B3-A0B0-4987-B9EC-91C7FA3063C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92FB6DAD-48CD-4947-AD53-FFCB51ECA51C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92FB6DAD-48CD-4947-AD53-FFCB51ECA51C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92FB6DAD-48CD-4947-AD53-FFCB51ECA51C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92FB6DAD-48CD-4947-AD53-FFCB51ECA51C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
