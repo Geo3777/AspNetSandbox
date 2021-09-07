@@ -60,8 +60,8 @@ namespace AspNetSandbox
 
         public void Put(int id, Book value)
         {
-            var index = books.FindIndex(book => book.Id == id);
-            books[index] = value;
+            var index1 = books.FindIndex(book => book.Id == id);
+            books[index1] = value;
         }
 
         public void Delete(int id)
