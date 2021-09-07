@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AspNetSandbox
 {
-    public class BooksService
+    public class BooksService : IBooksService
     {
         private List<Book> books;
         public BooksService()
