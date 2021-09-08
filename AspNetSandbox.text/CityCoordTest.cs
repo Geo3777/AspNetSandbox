@@ -5,6 +5,9 @@ using Xunit;
 
 namespace AspNetSandbox.Tests
 {
+    /// <summary>
+    /// this is test suit for weather forecast
+    /// </summary>
     public class CityCoordTest
     {
         [Fact]
@@ -21,10 +24,11 @@ namespace AspNetSandbox.Tests
             var weatherForecastForTomorrow = ((CityCoordonates[])output)[0];
             Assert.Equal("51.5085", weatherForecastForTomorrow.Latitude);
         }
+
         [Fact]
         public void ConvertResponseToWeatherForecastLongitudeTest()
         {
-            //Asume
+            // Asume
             string content = LoadJsonFromResource1();
             var controller = new CityCoordonatesController();
 
@@ -35,10 +39,11 @@ namespace AspNetSandbox.Tests
             var weatherForecastForTomorrow = ((CityCoordonates[])output)[0];
             Assert.Equal("-0.1257", weatherForecastForTomorrow.Longitude);
         }
+
         [Fact]
         public void ConvertResponseToWeatherForecastCityNameTest()
         {
-            //Asume
+            // Asume
             string content = LoadJsonFromResource1();
             var controller = new CityCoordonatesController();
 
