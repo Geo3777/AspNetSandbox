@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AspNetSandbox</name>
+    </assembly>
+    <members>
+        <member name="T:AspNetSandbox.Controllers.WeatherForecastController">
+            <summary>
+            Controller that allows us to get  weather from openweather api.
+            </summary>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.WeatherForecastController.Get">
+            <summary>
+            getswaether forecast for 5 days
+            </summary>
+            <returns>
+            Enurable of weatherforecast objects.
+            </returns>
+        </member>
+    </members>
+</doc>

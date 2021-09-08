@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,12 +10,21 @@ using RestSharp;
 
 namespace AspNetSandbox.Controllers
 {
+    /// <summary>
+    /// Controller that allows us to get  weather from openweather api.
+    /// </summary>
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
     {
 
         private const float KELVIN_CONST = 273.15f;
+        /// <summary>
+        /// getswaether forecast for 5 days
+        /// </summary>
+        /// <returns>
+        /// Enurable of weatherforecast objects.
+        /// </returns>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         { 
