@@ -37,23 +37,13 @@ namespace AspNetSandbox
 
         public Book Get(int id)
         {
-            return books.Single(book => book.Id == id);
-        }
-
-        // Instantiate random number generator.  
-        private readonly Random _random = new Random();
-
-        // Generates a random number within a range.      
-        public int RandomNumber(int min, int max)
-        {
-            return _random.Next(min, max);
+            return books.Single(_ => _.Id == id);
         }
 
         public void Post(Book value)
         {
-            CountMemory.count = CountMemory.count + 1;
-            int id = CountMemory.count;
-            //int id = RandomNumber(100,1000);
+           
+            int id = CountId.GetNewId();
             value.Id = id;
             books.Add(value);
         }
@@ -69,9 +59,13 @@ namespace AspNetSandbox
             books.Remove(Get(id));
         }
     }
-    public static class CountMemory
+    public static class CountId
     {
         public static int count = 2;
-        
+
+        internal static int GetNewId()
+        {
+            return ++count;
+        }
     }
 }

@@ -36,10 +36,10 @@ heroku container:login
 
 Push container
 ```
-heroku container:push -a aspnetsandbox1 web
+heroku container:push -a aspnetsandbox2 web
 ```
 
 Release the container
 ```
-heroku container:release -a aspnetsandbox1 web
+heroku container:release -a aspnetsandbox2 web
 ```
