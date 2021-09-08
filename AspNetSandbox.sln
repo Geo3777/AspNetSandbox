@@ -10,7 +10,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetSandbox.text", "AspNe
 		{BB8EF3E3-8178-439F-B404-B2CC9603156A} = {BB8EF3E3-8178-439F-B404-B2CC9603156A}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockkerSandbox", "DockkerSandbox\DockkerSandbox.csproj", "{92FB6DAD-48CD-4947-AD53-FFCB51ECA51C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DockkerSandbox", "DockkerSandbox\DockkerSandbox.csproj", "{92FB6DAD-48CD-4947-AD53-FFCB51ECA51C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B8ED8752-4F6D-4002-BF9F-7802D30B23EC}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\dotnet.yml = .github\workflows\dotnet.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
