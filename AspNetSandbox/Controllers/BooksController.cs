@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AspNetSandbox.Controllers
 {
+    /// <summary>
+    ///   <br />
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class BooksController : ControllerBase
@@ -18,36 +16,41 @@ namespace AspNetSandbox.Controllers
         {
             this.booksService = booksService;
         }
-        // GET: api/<BooksController>
+
         [HttpGet]
         public IEnumerable<Book> Get()
         {
             return booksService.Get();
         }
 
-        // GET api/<BooksController>/5
+        /// <summary>Gets the specified book by id.</summary>
+        /// <param name="id">The identifier.</param>
+        /// <returns>book object.</returns>
         [HttpGet("{id}")]
         public Book Get(int id)
         {
             return booksService.Get(id);
         }
 
-
-        // POST api/<BooksController>
+        /// <summary>Posts the specified value.</summary>
+        /// <param name="value">The value.</param>
         [HttpPost]
         public void Post([FromBody] Book value)
         {
             booksService.Post(value);
         }
 
-        // PUT api/<BooksController>/5
+        /// <summary>Puts the specified identifier.</summary>
+        /// <param name="id">The identifier.</param>
+        /// <param name="value">The value.</param>
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Book value)
         {
             booksService.Put(id, value);
         }
 
-        // DELETE api/<BooksController>/5
+        /// <summary>Deletes the specified identifier.</summary>
+        /// <param name="id">The identifier.</param>
         [HttpDelete("{id}")]
         public void Delete(int id)
         {

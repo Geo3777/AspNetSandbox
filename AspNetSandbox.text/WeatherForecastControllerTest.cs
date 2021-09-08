@@ -1,16 +1,19 @@
-using AspNetSandbox.Controllers;
 using System;
 using System.IO;
+using AspNetSandbox.Controllers;
 using Xunit;
 
 namespace AspNetSandbox.Tests
 {
+    /// <summary>
+    /// this is test suit for weatherforecast api.
+    /// </summary>
     public class WeatherForecastControllerTest
     {
         [Fact]
         public void ConvertResponseToWeatherForecastTest()
         {
-            //Asume
+            // Asume
             string content = LoadJsonFromResource();
             var controller = new WeatherForecastController();
 
@@ -27,10 +30,9 @@ namespace AspNetSandbox.Tests
         [Fact]
         public void ConvertResponseToWeatherAfterTormorrowForecastTest()
         {
-            //Asume
+            // Asume
             string content = LoadJsonFromResource();
             var controller = new WeatherForecastController();
-
 
             // Act
             var output = controller.ConvertResponseToWeatherForecast(content);
@@ -41,6 +43,7 @@ namespace AspNetSandbox.Tests
             Assert.Equal(22, weatherForecastAfterTomorrow.TemperatureC);
             Assert.Equal(new DateTime(2021, 9, 4), weatherForecastAfterTomorrow.Date);
         }
+
         private string LoadJsonFromResource()
         {
             var assembly = this.GetType().Assembly;
@@ -52,6 +55,5 @@ namespace AspNetSandbox.Tests
                 return tr.ReadToEnd();
             }
         }
-
     }
 }

@@ -4,6 +4,43 @@
         <name>AspNetSandbox</name>
     </assembly>
     <members>
+        <member name="T:AspNetSandbox.Controllers.BooksController">
+            <summary>
+              <br />
+            </summary>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.BooksController.Get(System.Int32)">
+            <summary>Gets the specified book by id.</summary>
+            <param name="id">The identifier.</param>
+            <returns>book object.</returns>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.BooksController.Post(AspNetSandbox.Book)">
+            <summary>Posts the specified value.</summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.BooksController.Put(System.Int32,AspNetSandbox.Book)">
+            <summary>Puts the specified identifier.</summary>
+            <param name="id">The identifier.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.BooksController.Delete(System.Int32)">
+            <summary>Deletes the specified identifier.</summary>
+            <param name="id">The identifier.</param>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.CityCoordonatesController.Get">
+            <summary>Gets this instance.</summary>
+            <returns>
+              ConvertResponseToWeatherForecastCityCoord.
+            </returns>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.CityCoordonatesController.ConvertResponseToWeatherForecastCityCoord(System.String,System.Int32)">
+            <summary>Converts the response to weather forecast city coord.</summary>
+            <param name="content">The content.</param>
+            <param name="days">The days.</param>
+            <returns>
+              Latitude, Longitude, Name.
+            </returns>
+        </member>
         <member name="T:AspNetSandbox.Controllers.WeatherForecastController">
             <summary>
             Controller that allows us to get  weather from openweather api.
@@ -11,11 +48,32 @@
         </member>
         <member name="M:AspNetSandbox.Controllers.WeatherForecastController.Get">
             <summary>
-            getswaether forecast for 5 days
+            getswaether forecast for 5 days.
             </summary>
             <returns>
             Enurable of weatherforecast objects.
             </returns>
+        </member>
+        <member name="M:AspNetSandbox.Controllers.WeatherForecastController.ConvertResponseToWeatherForecast(System.String,System.Int32)">
+            <summary>Converts the response to weather forecast.</summary>
+            <param name="content">The content.</param>
+            <param name="days">The days.</param>
+            <returns>
+              Date, Temperature, Summary.
+            </returns>
+        </member>
+        <member name="P:AspNetSandbox.Startup.Configuration">
+            <summary>Gets the configuration.</summary>
+            <value>The configuration.</value>
+        </member>
+        <member name="M:AspNetSandbox.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>This method gets called by the runtime. Use this method to add services to the container.</summary>
+            <param name="services">The services.</param>
+        </member>
+        <member name="M:AspNetSandbox.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>his method gets called by the runtime. Use this method to configure the HTTP request pipeline.</summary>
+            <param name="app">The application.</param>
+            <param name="env">The env.</param>
         </member>
     </members>
 </doc>

@@ -1,25 +1,24 @@
-﻿using AspNetSandbox.Controllers;
-using System;
-using System.IO;
+﻿using System.IO;
+using AspNetSandbox.Controllers;
 using Xunit;
 
 namespace AspNetSandbox.Tests
 {
     /// <summary>
-    /// this is test suit for weather forecast
+    /// this is test suit for city coordonates.
     /// </summary>
     public class CityCoordTest
     {
         [Fact]
         public void ConvertResponseToWeatherForecastLatitudeTest()
         {
-            //Asume
+            // Asume
             string content = LoadJsonFromResource1();
             var controller = new CityCoordonatesController();
 
             // Act
             var output = controller.ConvertResponseToWeatherForecastCityCoord(content);
-           
+
             // Assert
             var weatherForecastForTomorrow = ((CityCoordonates[])output)[0];
             Assert.Equal("51.5085", weatherForecastForTomorrow.Latitude);
@@ -66,6 +65,5 @@ namespace AspNetSandbox.Tests
                 return tr.ReadToEnd();
             }
         }
-
     }
 }

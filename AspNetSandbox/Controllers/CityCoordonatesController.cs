@@ -1,17 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Newtonsoft.Json.Linq;
 using RestSharp;
+
 namespace AspNetSandbox.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class CityCoordonatesController : ControllerBase
     {
+        /// <summary>Gets this instance.</summary>
+        /// <returns>
+        ///   ConvertResponseToWeatherForecastCityCoord.
+        /// </returns>
         [HttpGet]
         public IEnumerable<CityCoordonates> Get()
         {
@@ -22,6 +25,13 @@ namespace AspNetSandbox.Controllers
             Console.WriteLine(response.Content);
             return ConvertResponseToWeatherForecastCityCoord(response.Content);
         }
+
+        /// <summary>Converts the response to weather forecast city coord.</summary>
+        /// <param name="content">The content.</param>
+        /// <param name="days">The days.</param>
+        /// <returns>
+        ///   Latitude, Longitude, Name.
+        /// </returns>
         [NonAction]
         public IEnumerable<CityCoordonates> ConvertResponseToWeatherForecastCityCoord(string content, int days = 5)
         {
