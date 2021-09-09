@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using AspNetSandbox.Models;
 
-namespace DBSandbox.Data
+namespace AspNetSandbox.Data
 {
     public class ApplicationDbContext : IdentityDbContext
     {

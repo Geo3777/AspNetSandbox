@@ -56,7 +56,7 @@
             <summary>BooksController .
             Exposes api CRUD operations for books.</summary>
         </member>
-        <member name="M:AspNetSandBox.Controllers.BooksController.#ctor(DBSandbox.Data.ApplicationDbContext)">
+        <member name="M:AspNetSandBox.Controllers.BooksController.#ctor(AspNetSandbox.Data.ApplicationDbContext)">
             <summary>Initializes a new instance of the <see cref="T:AspNetSandBox.Controllers.BooksController" /> class.</summary>
         </member>
         <member name="M:AspNetSandBox.Controllers.BooksController.Get">
