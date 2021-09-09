@@ -1,61 +1,101 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 using AspNetSandbox.Models;
+using DBSandbox.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace AspNetSandbox.Controllers
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+namespace AspNetSandBox.Controllers
 {
-    /// <summary>
-    ///   <br />
-    /// </summary>
+    /// <summary>BooksController .
+    /// Exposes api CRUD operations for books.</summary>
     [Route("api/[controller]")]
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly IBooksService booksService;
+        private readonly ApplicationDbContext _context;
 
-        public BooksController(IBooksService booksService)
+        /// <summary>Initializes a new instance of the <see cref="BooksController" /> class.</summary>
+        public BooksController(ApplicationDbContext context)
         {
-            this.booksService = booksService;
+            _context = context;
         }
 
+        // GET: api/<ValuesController>
+
+        /// <summary>Gets all the instances of books.</summary>
+        /// <returns>Enumerable of book objects.<br /></returns>
         [HttpGet]
-        public IEnumerable<Book> Get()
+        public async Task<IActionResult> Get()
         {
-            return booksService.Get();
+            return Ok(await _context.Book.ToListAsync());
         }
+
+        // GET api/<ValuesController>/5
 
         /// <summary>Gets the specified book by id.</summary>
         /// <param name="id">The identifier.</param>
         /// <returns>book object.</returns>
         [HttpGet("{id}")]
-        public Book Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return booksService.Get(id);
+            try
+            {
+                var book = await _context.Book
+                .FirstOrDefaultAsync(m => m.Id == id);
+                return Ok(book);
+            }
+            catch (Exception)
+            {
+                return NotFound();
+            }
         }
 
-        /// <summary>Posts the specified value.</summary>
-        /// <param name="value">The value.</param>
+        // POST api/<ValuesController>
+
+        /// <summary>Posts the specified book.</summary>
+        /// <param name="book">The value.</param>
         [HttpPost]
-        public void Post([FromBody] Book value)
+        public async Task<IActionResult> Post([FromBody] Book book)
         {
-            booksService.Post(value);
+            if (ModelState.IsValid)
+            {
+                _context.Add(book);
+                await _context.SaveChangesAsync();
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
-        /// <summary>Puts the specified identifier.</summary>
+        // PUT api/<ValuesController>/
+
+        /// <summary>Updates the book at the specified id with the fields of value.</summary>
         /// <param name="id">The identifier.</param>
-        /// <param name="value">The value.</param>
+        /// <param name="book">The value.</param>
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] Book value)
+        public async Task<IActionResult> Put(int id, [FromBody] Book book)
         {
-            booksService.Put(id, value);
+            _context.Update(book);
+            await _context.SaveChangesAsync();
+            return Ok();
         }
 
-        /// <summary>Deletes the specified identifier.</summary>
+        // DELETE api/<ValuesController>/5
+
+        /// <summary>Deletes the book found at the specified identifier.</summary>
         /// <param name="id">The identifier.</param>
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            booksService.Delete(id);
+            var book = await _context.Book.FindAsync(id);
+            _context.Book.Remove(book);
+            await _context.SaveChangesAsync();
+            return Ok();
         }
     }
 }
