@@ -15,13 +15,15 @@ namespace AspNetSandBox.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly ApplicationDbContext _context;
+        public readonly ApplicationDbContext _context;
 
         /// <summary>Initializes a new instance of the <see cref="BooksController" /> class.</summary>
         public BooksController(ApplicationDbContext context)
         {
             _context = context;
         }
+
+
 
         // GET: api/<ValuesController>
 
@@ -97,5 +99,7 @@ namespace AspNetSandBox.Controllers
             await _context.SaveChangesAsync();
             return Ok();
         }
+
+
     }
 }

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/BookApp/style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Employees</h1>
+        </div>
+        <div class="body">
+            <div class="tabel">
+                <input type="text"
+                       id="myInput"
+                       onkeyup="myFunction()"
+                       placeholder="Search for names.." />
+                <table style="width: 100%" id="tabell" name="tabell" class="my-table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Author</th>
+                        <th>Language</th>
+                    </tr>
+                </table>
+
+            </div>
+            <form class="input-boxes" id="formm" action="javascript:void(0);">
+                <div class="entryy">
+                    <p>Name:</p>
+                    <div class="barr">
+                        <input type="text"
+                               name="name"
+                               id="name"
+                               class="barrr"
+                               required />
+                    </div>
+                </div>
+                <div class="entryy">
+                    <p>Author:</p>
+                    <div class="barr">
+                        <input type="text"
+                               name="author"
+                               id="author"
+                               class="barrr"
+                               required />
+                    </div>
+                </div>
+                <div class="entryy">
+                    <p>Language:</p>
+                    <div class="barr">
+                        <input type="text"
+                               name="language"
+                               id="language"
+                               class="barrr"
+                               required />
+                    </div>
+                </div>
+                <input type="submit" class="sub" />
+            </form>
+        </div>
+    </div>
+
+    <script src="/BookApp/script.js"></script>
+</body>
+</html>
