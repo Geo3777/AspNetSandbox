@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNetSandbox
+namespace AspNetSandbox.Models
 {
     public class Book
     {

@@ -1,11 +1,23 @@
 using System;
+using System;
+using System.Collections.Generic;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
+using System.Threading.Tasks;
+using DBSandbox.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
@@ -36,6 +48,14 @@ namespace AspNetSandbox
                 c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
             services.AddSingleton<IBooksService, BooksService>();
+            services.AddDbContext<ApplicationDbContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+            services.AddDatabaseDeveloperPageExceptionFilter();
+
+            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddControllersWithViews();
         }
 
         /// <summary>his method gets called by the runtime. Use this method to configure the HTTP request pipeline.</summary>
@@ -48,6 +68,8 @@ namespace AspNetSandbox
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiSandbox v1"));
+                app.UseMigrationsEndPoint();
+
             }
             else
             {
@@ -59,16 +81,20 @@ namespace AspNetSandbox
             var defaultFilesOptions = new DefaultFilesOptions();
             defaultFilesOptions.DefaultFileNames = new List<string>();
             defaultFilesOptions.DefaultFileNames.Add("htmlpage.html");
-
+            app.UseStaticFiles();
             app.UseDefaultFiles(defaultFilesOptions);
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages(); endpoints.MapRazorPages();
                 endpoints.MapControllers();
             });
         }
