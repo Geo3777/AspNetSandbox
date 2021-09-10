@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace AspNetSandbox.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210910065928_InitialMigration")]
+    [Migration("20210910072448_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
