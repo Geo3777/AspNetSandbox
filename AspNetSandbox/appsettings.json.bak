@@ -1,6 +1,6 @@
 {
-	"ConnectionStrings": {
-    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=aspnet-DBSandbox-85C70D45-DDF9-493D-9954-3AEBB2AE1D1C;Trusted_Connection=True;MultipleActiveResultSets=true"
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=aspnet-AspNetSandbox-85C70D45-DDF9-493D-9954-3AEBB2AE1D1C;Trusted_Connection=True;MultipleActiveResultSets=true"
   },
   "Logging": {
     "LogLevel": {
