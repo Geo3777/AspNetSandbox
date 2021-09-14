@@ -6,6 +6,7 @@ namespace AspNetSandbox.Services
 {
     public class BooksInMemoryRepository : IBooksSRepository
     {
+        private static int id;
         private List<Book> books;
 
         public BooksInMemoryRepository()
@@ -14,18 +15,23 @@ namespace AspNetSandbox.Services
             books.Add(new Book
             {
                 Id = 1,
-                Title = "Monte Cassino",
-                Language = "English",
-                Author = "Sven Hassel",
+                Title = "Sapiens - o scurta istorie a omenirii",
+                Author = "Yuval Noah Harari",
+                Language = "Romanian",
             });
 
             books.Add(new Book
             {
                 Id = 2,
-                Title = "Assignment Gestapo",
+                Title = "Deep Work",
+                Author = "Cal Newport",
                 Language = "English",
-                Author = "Sven Hassel",
             });
+        }
+
+        public static void ResetId()
+        {
+            id = 0;
         }
 
         public IEnumerable<Book> Get()
@@ -40,30 +46,22 @@ namespace AspNetSandbox.Services
 
         public void Post(Book value)
         {
-            int id = CountId.GetNewId();
-            value.Id = id;
+            int previousId = books[books.Count - 1].Id;
+            value.Id = previousId + 1;
             books.Add(value);
         }
 
         public void Put(int id, Book value)
         {
-            var index = books.FindIndex(book => book.Id == id);
-            books[index] = value;
+            if (id == value.Id)
+            {
+                books[id - 1] = value;
+            }
         }
 
         public void Delete(int id)
         {
             books.Remove(Get(id));
-        }
-    }
-
-    public static class CountId
-    {
-        public static int Count = 2;
-
-        internal static int GetNewId()
-        {
-            return ++Count;
         }
     }
 }
