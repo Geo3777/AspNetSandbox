@@ -29,7 +29,7 @@ namespace AspNetSandBox.Controllers
         /// <summary>Gets all the instances of books.</summary>
         /// <returns>Enumerable of book objects.<br /></returns>
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             return Ok(repository.Get());
         }
@@ -40,7 +40,7 @@ namespace AspNetSandBox.Controllers
         /// <param name="id">The identifier.</param>
         /// <returns>book object.</returns>
         [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
+        public IActionResult Get(int id)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace AspNetSandBox.Controllers
         /// <summary>Posts the specified book.</summary>
         /// <param name="book">The value.</param>
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] Book book)
+        public IActionResult Post([FromBody] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -77,7 +77,7 @@ namespace AspNetSandBox.Controllers
         /// <param name="id">The identifier.</param>
         /// <param name="book">The value.</param>
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, [FromBody] Book book)
+        public IActionResult Put(int id, [FromBody] Book book)
         {
             repository.Put(id, book);
             return Ok();
@@ -88,7 +88,7 @@ namespace AspNetSandBox.Controllers
         /// <summary>Deletes the book found at the specified identifier.</summary>
         /// <param name="id">The identifier.</param>
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public IActionResult Delete(int id)
         {
             repository.Delete(id);
             return Ok();
