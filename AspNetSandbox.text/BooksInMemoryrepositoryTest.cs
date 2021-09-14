@@ -1,4 +1,5 @@
 ﻿using AspNetSandbox.Models;
+using AspNetSandbox.Services;
 using Xunit;
 
 namespace AspNetSandbox.Tests
@@ -6,13 +7,13 @@ namespace AspNetSandbox.Tests
     /// <summary>
     /// this is test suit for books api.
     /// </summary>
-    public class BooksInMemoryrepositoryTest
+    public class BooksInMemoryRepositoryTest
     {
         [Fact]
         public static void BookIdTest()
         {
             // Assume
-            var booksService = new BooksiInMemoryRepository();
+            var booksService = new BooksInMemoryRepository();
 
             // Act
             booksService.Post(new Book

@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AspNetSandbox
+namespace AspNetSandbox.Services
 {
-    public class BooksiInMemoryRepository : IBooksSRepository
+    public class BooksInMemoryRepository : IBooksSRepository
     {
         private List<Book> books;
 
-        public BooksiInMemoryRepository()
+        public BooksInMemoryRepository()
         {
             books = new List<Book>();
             books.Add(new Book
