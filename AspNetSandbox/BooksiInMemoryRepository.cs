@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace AspNetSandbox
 {
-    public class BooksService : IBooksService
+    public class BooksiInMemoryRepository : IBooksSRepository
     {
         private List<Book> books;
 
-        public BooksService()
+        public BooksiInMemoryRepository()
         {
             books = new List<Book>();
             books.Add(new Book

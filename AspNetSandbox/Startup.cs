@@ -48,7 +48,7 @@ namespace AspNetSandbox
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
-            services.AddSingleton<IBooksService, BooksService>();
+            services.AddSingleton<IBooksSRepository, BooksiInMemoryRepository>();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(
                     Configuration.GetConnectionString("DefaultConnection")));

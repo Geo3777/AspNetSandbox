@@ -6,13 +6,13 @@ namespace AspNetSandbox.Tests
     /// <summary>
     /// this is test suit for books api.
     /// </summary>
-    public class BooksServiceTest
+    public class BooksInMemoryrepositoryTest
     {
         [Fact]
         public static void BookIdTest()
         {
             // Assume
-            var booksService = new BooksService();
+            var booksService = new BooksiInMemoryRepository();
 
             // Act
             booksService.Post(new Book

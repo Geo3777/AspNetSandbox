@@ -11,9 +11,9 @@ namespace AspNetSandbox.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly IBooksService booksService;
+        private readonly IBooksSRepository booksService;
 
-        public BooksController(IBooksService booksService)
+        public BooksController(IBooksSRepository booksService)
         {
             this.booksService = booksService;
         }
