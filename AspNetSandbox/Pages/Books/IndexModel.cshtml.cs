@@ -23,4 +23,5 @@ namespace AspNetSandbox.Pages.Shared
             Book = await this.context.Book.ToListAsync();
         }
     }
+
 }

@@ -11,21 +11,6 @@ connection.start().then(function () {
 connection.on("BookCreated", function (user, message) {
     console.log('Book Created: ${JSON.stringify(book)}');
 
-    $("#tbody").append('<tr>
-        < td >
-        ${ book.title }
-        </td >
-        <td>
-           ${book.author}
-        </td>
-        <td>
-           ${book.language}
-        </td>
-        <td>
-            <a href="/Books/Edit?id=${book.id}">Edit</a> |
-            <a href="/Books/Details?id=${book.id}">Details</a> |
-            <a href="/Books/Delete?id=${book.id}">Delete</a>
-        </td>
-    </tr > ');
+    $("tbody").append('<tr>< td >${ book.title }</td ><td>${book.author}</td><td>${book.language}</td><td><a href="/Books/Edit?id=${book.id}">Edit</a> |<a href="/Books/Details?id=${book.id}">Details</a> |<a href="/Books/Delete?id=${book.id}">Delete</a></td></tr >');
 });
 
