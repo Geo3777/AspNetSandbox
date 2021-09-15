@@ -8,11 +8,11 @@ using Microsoft.Extensions.Logging;
 
 namespace AspNetSandbox.Pages
 {
-    public class Chat : PageModel
+    public class PrivacyModel : PageModel
     {
         private readonly ILogger<PrivacyModel> _logger;
 
-        public Chat(ILogger<PrivacyModel> logger)
+        public PrivacyModel(ILogger<PrivacyModel> logger)
         {
             _logger = logger;
         }
