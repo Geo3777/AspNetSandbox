@@ -59,6 +59,8 @@ namespace AspNetSandbox
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddSignalR();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
         }
 
         /// <summary>his method gets called by the runtime. Use this method to configure the HTTP request pipeline.</summary>
@@ -94,7 +96,7 @@ namespace AspNetSandbox
 
             app.UseEndpoints(endpoints =>
             {
-				endpoints.MapControllerRoute(
+                endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();

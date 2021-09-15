@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AspNetSandbox;
 using Microsoft.AspNetCore.SignalR;
+using AspNetSandbox.DTOs;
+using AutoMapper;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 namespace AspNetSandBox.Controllers
@@ -19,11 +21,13 @@ namespace AspNetSandBox.Controllers
     {
         private readonly IBooksSRepository repository;
         private readonly IHubContext<MessageHub> hubContext;
+        private readonly IMapper mapper;
 
         /// <summary>Initializes a new instance of the <see cref="BooksController" /> class.</summary>
-        public BooksController(IBooksSRepository repository, IHubContext<MessageHub> hubContext)
+        public BooksController(IBooksSRepository repository, IHubContext<MessageHub> hubContext, IMapper mapper)
         {
             this.hubContext = hubContext;
+            this.mapper = mapper;
             this.repository = repository;
         }
 
@@ -59,14 +63,15 @@ namespace AspNetSandBox.Controllers
         // POST api/<ValuesController>
 
         /// <summary>Posts the specified book.</summary>
-        /// <param name="book">The value.</param>
+        /// <param name="bookDto">The value.</param>
         [HttpPost]
-        public IActionResult Post([FromBody] Book book)
+        public IActionResult Post([FromBody] CreateBookDto bookDto)
         {
             if (ModelState.IsValid)
             {
+                Book book = mapper.Map<Book>(bookDto);
                 repository.Post(book);
-                hubContext.Clients.All.SendAsync("BooksCreated", book);
+                hubContext.Clients.All.SendAsync("BooksCreated", bookDto);
                 return Ok();
             }
             else

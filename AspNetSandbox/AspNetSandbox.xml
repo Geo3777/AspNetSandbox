@@ -71,7 +71,7 @@
             <summary>BooksController .
             Exposes api CRUD operations for books.</summary>
         </member>
-        <member name="M:AspNetSandBox.Controllers.BooksController.#ctor(AspNetSandbox.IBooksSRepository,Microsoft.AspNetCore.SignalR.IHubContext{AspNetSandbox.MessageHub})">
+        <member name="M:AspNetSandBox.Controllers.BooksController.#ctor(AspNetSandbox.IBooksSRepository,Microsoft.AspNetCore.SignalR.IHubContext{AspNetSandbox.MessageHub},AutoMapper.IMapper)">
             <summary>Initializes a new instance of the <see cref="T:AspNetSandBox.Controllers.BooksController" /> class.</summary>
         </member>
         <member name="M:AspNetSandBox.Controllers.BooksController.Get">
@@ -83,9 +83,9 @@
             <param name="id">The identifier.</param>
             <returns>book object.</returns>
         </member>
-        <member name="M:AspNetSandBox.Controllers.BooksController.Post(AspNetSandbox.Models.Book)">
+        <member name="M:AspNetSandBox.Controllers.BooksController.Post(AspNetSandbox.DTOs.CreateBookDto)">
             <summary>Posts the specified book.</summary>
-            <param name="book">The value.</param>
+            <param name="bookDto">The value.</param>
         </member>
         <member name="M:AspNetSandBox.Controllers.BooksController.Put(System.Int32,AspNetSandbox.Models.Book)">
             <summary>Updates the book at the specified id with the fields of value.</summary>
