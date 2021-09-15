@@ -39,6 +39,21 @@
               Date, Temperature, Summary.
             </returns>
         </member>
+        <member name="T:AspNetSandbox.Pages.Shared.CreateModel">
+            <summary>Creates new books to add to our data.</summary>
+        </member>
+        <member name="T:AspNetSandbox.Pages.Shared.DeleteModel">
+            <summary>Deletes books.</summary>
+        </member>
+        <member name="T:AspNetSandbox.Pages.Shared.DetailsModel">
+            <summary>Shows details about a book.</summary>
+        </member>
+        <member name="T:AspNetSandbox.Pages.Shared.EditModel">
+            <summary>Provides the ability to edit book data.</summary>
+        </member>
+        <member name="T:AspNetSandbox.Pages.Shared.IndexModel">
+            <summary>Model for main dashboard of books.</summary>
+        </member>
         <member name="P:AspNetSandbox.Startup.Configuration">
             <summary>Gets the configuration.</summary>
             <value>The configuration.</value>
