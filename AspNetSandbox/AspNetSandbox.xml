@@ -71,7 +71,7 @@
             <summary>BooksController .
             Exposes api CRUD operations for books.</summary>
         </member>
-        <member name="M:AspNetSandBox.Controllers.BooksController.#ctor(AspNetSandbox.IBooksSRepository)">
+        <member name="M:AspNetSandBox.Controllers.BooksController.#ctor(AspNetSandbox.IBooksSRepository,Microsoft.AspNetCore.SignalR.IHubContext{AspNetSandbox.MessageHub})">
             <summary>Initializes a new instance of the <see cref="T:AspNetSandBox.Controllers.BooksController" /> class.</summary>
         </member>
         <member name="M:AspNetSandBox.Controllers.BooksController.Get">

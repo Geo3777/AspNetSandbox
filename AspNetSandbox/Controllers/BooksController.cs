@@ -6,6 +6,7 @@ using AspNetSandbox.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using AspNetSandbox;
+using Microsoft.AspNetCore.SignalR;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 namespace AspNetSandBox.Controllers
@@ -17,10 +18,12 @@ namespace AspNetSandBox.Controllers
     public class BooksController : ControllerBase
     {
         private readonly IBooksSRepository repository;
+        private readonly IHubContext<MessageHub> hubContext;
 
         /// <summary>Initializes a new instance of the <see cref="BooksController" /> class.</summary>
-        public BooksController(IBooksSRepository repository)
+        public BooksController(IBooksSRepository repository, IHubContext<MessageHub> hubContext)
         {
+            this.hubContext = hubContext;
             this.repository = repository;
         }
 
@@ -63,6 +66,7 @@ namespace AspNetSandBox.Controllers
             if (ModelState.IsValid)
             {
                 repository.Post(book);
+                hubContext.Clients.All.SendAsync("BooksCreated", book);
                 return Ok();
             }
             else
