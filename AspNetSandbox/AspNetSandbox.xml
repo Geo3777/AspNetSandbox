@@ -87,9 +87,10 @@
             <summary>Posts the specified book.</summary>
             <param name="bookDto">The value.</param>
         </member>
-        <member name="M:AspNetSandBox.Controllers.BooksController.Put(System.Int32,AspNetSandbox.Models.Book)">
+        <member name="M:AspNetSandBox.Controllers.BooksController.Put(System.Int32,AspNetSandbox.DTOs.UpdateBookDto)">
             <summary>Updates the book at the specified id with the fields of value.</summary>
             <param name="id">The identifier.</param>
+            <param name="bookDto"></param>
             <param name="book">The value.</param>
         </member>
         <member name="M:AspNetSandBox.Controllers.BooksController.Delete(System.Int32)">

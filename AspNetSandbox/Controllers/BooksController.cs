@@ -84,11 +84,14 @@ namespace AspNetSandBox.Controllers
 
         /// <summary>Updates the book at the specified id with the fields of value.</summary>
         /// <param name="id">The identifier.</param>
+        /// <param name="bookDto"></param>
         /// <param name="book">The value.</param>
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] Book book)
+        public IActionResult Put(int id, [FromBody] UpdateBookDto bookDto)
         {
+            Book book = mapper.Map<Book>(bookDto);
             repository.Put(id, book);
+            hubContext.Clients.All.SendAsync("BookUpdate", bookDto);
             return Ok();
         }
 
@@ -100,6 +103,7 @@ namespace AspNetSandBox.Controllers
         public IActionResult Delete(int id)
         {
             repository.Delete(id);
+            hubContext.Clients.All.SendAsync("BookDelete", id);
             return Ok();
         }
     }
