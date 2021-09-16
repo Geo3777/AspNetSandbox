@@ -14,6 +14,8 @@ namespace AspNetSandbox.Profiles
         {
             CreateMap<CreateBookDto, Book>();
             CreateMap<UpdateBookDto, Book>();
+            CreateMap<Book, ReadBookDto>();
+            CreateMap<Book, ReadAllBooksDto>();
         }
     }
 }

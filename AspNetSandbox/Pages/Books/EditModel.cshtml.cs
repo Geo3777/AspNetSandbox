@@ -16,20 +16,14 @@ namespace AspNetSandbox.Pages.Shared
         private readonly IHubContext<MessageHub> hubContext;
         private readonly AspNetSandbox.Data.ApplicationDbContext context;
 
-
-
         public EditModel(AspNetSandbox.Data.ApplicationDbContext context, IHubContext<MessageHub> hubContext)
         {
             this.context = context;
             this.hubContext = hubContext;
         }
 
-
-
         [BindProperty]
         public Book Book { get; set; }
-
-
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -38,23 +32,14 @@ namespace AspNetSandbox.Pages.Shared
                 return NotFound();
             }
 
-
-
             Book = await this.context.Book.FirstOrDefaultAsync(m => m.Id == id);
-
-
-
             if (Book == null)
             {
                 return NotFound();
             }
 
-
-
             return Page();
         }
-
-
 
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see https://aka.ms/RazorPagesCRUD.
@@ -64,20 +49,10 @@ namespace AspNetSandbox.Pages.Shared
             {
                 return Page();
             }
-
-
-
             this.context.Attach(Book).State = EntityState.Modified;
-
-
-
-
             try
             {
                 await this.context.SaveChangesAsync();
-
-
-
             }
             catch (DbUpdateConcurrencyException)
             {
@@ -94,8 +69,6 @@ namespace AspNetSandbox.Pages.Shared
             await hubContext.Clients.All.SendAsync("BookUpdated", Book);
             return RedirectToPage("./Index");
         }
-
-
 
         private bool BookExists(int id)
         {

@@ -38,7 +38,9 @@ namespace AspNetSandBox.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(repository.Get());
+            Book book = (Book)repository.Get();
+            ReadAllBooksDto booksDto = mapper.Map<ReadAllBooksDto>(book);
+            return Ok(booksDto);
         }
 
         // GET api/<ValuesController>/5
@@ -51,8 +53,9 @@ namespace AspNetSandBox.Controllers
         {
             try
             {
-                var book = repository.Get(id);
-                return Ok(book);
+                Book book = repository.Get(id);
+                ReadBookDto bookDto = mapper.Map<ReadBookDto>(book);
+                return Ok(bookDto);
             }
             catch (Exception)
             {

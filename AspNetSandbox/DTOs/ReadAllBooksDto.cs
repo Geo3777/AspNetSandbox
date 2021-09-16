@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNetSandbox.Models
+namespace AspNetSandbox.DTOs
 {
-    public class Book
+    public class ReadAllBooksDto
     {
         public int Id { get; set; }
 
@@ -15,6 +15,5 @@ namespace AspNetSandbox.Models
 
         public string Language { get; set; }
 
-        public decimal PurchasePrice { get; set; }
     }
 }
