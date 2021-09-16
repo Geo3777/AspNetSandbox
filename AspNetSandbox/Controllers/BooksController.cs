@@ -39,7 +39,6 @@ namespace AspNetSandBox.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            //IEnumerable<Book> BookList = new IEnumerable<Book>();
             Book BookList = (Book)repository.Get();
             ReadBookDto booksDto = mapper.Map<ReadBookDto>(BookList);
             return Ok(booksDto);
@@ -108,7 +107,9 @@ namespace AspNetSandBox.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            repository.Delete(id);
+            Book book = repository.Get(id);
+            ReadBookDto bookDto = mapper.Map<ReadBookDto>(book);
+            repository.Delete(bookDto.Id);
             hubContext.Clients.All.SendAsync("BookDelete", id);
             return Ok();
         }
