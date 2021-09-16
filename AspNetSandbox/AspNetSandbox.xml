@@ -91,7 +91,6 @@
             <summary>Updates the book at the specified id with the fields of value.</summary>
             <param name="id">The identifier.</param>
             <param name="bookDto"></param>
-            <param name="book">The value.</param>
         </member>
         <member name="M:AspNetSandBox.Controllers.BooksController.Delete(System.Int32)">
             <summary>Deletes the book found at the specified identifier.</summary>

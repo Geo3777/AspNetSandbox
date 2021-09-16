@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using AspNetSandbox.Models;
-using AspNetSandbox.Data;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using AspNetSandbox;
-using Microsoft.AspNetCore.SignalR;
 using AspNetSandbox.DTOs;
+using AspNetSandbox.Models;
 using AutoMapper;
-using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 namespace AspNetSandBox.Controllers
@@ -42,7 +37,8 @@ namespace AspNetSandBox.Controllers
             Book BookList = (Book)repository.Get();
             ReadBookDto booksDto = mapper.Map<ReadBookDto>(BookList);
             return Ok(booksDto);
-            //return Ok(repository.Get());
+
+            // return Ok(repository.Get());
         }
 
         // GET api/<ValuesController>/5
@@ -90,7 +86,6 @@ namespace AspNetSandBox.Controllers
         /// <summary>Updates the book at the specified id with the fields of value.</summary>
         /// <param name="id">The identifier.</param>
         /// <param name="bookDto"></param>
-        /// <param name="book">The value.</param>
         [HttpPut("{id}")]
         public IActionResult Put(int id, [FromBody] UpdateBookDto bookDto)
         {

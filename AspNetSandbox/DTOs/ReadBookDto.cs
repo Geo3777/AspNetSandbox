@@ -14,6 +14,5 @@ namespace AspNetSandbox.DTOs
         public string Author { get; set; }
 
         public string Language { get; set; }
-
     }
 }

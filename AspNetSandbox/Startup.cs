@@ -1,12 +1,9 @@
 using System;
-using System;
-using System.Collections.Generic;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
-using AspNetSandbox.Data;
 using AspNetSandbox.Data;
 using AspNetSandbox.Services;
 using Microsoft.AspNetCore.Builder;
@@ -16,10 +13,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 
@@ -60,7 +54,6 @@ namespace AspNetSandbox
             services.AddControllersWithViews();
             services.AddSignalR();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
         }
 
         /// <summary>his method gets called by the runtime. Use this method to configure the HTTP request pipeline.</summary>
@@ -74,7 +67,6 @@ namespace AspNetSandbox
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiSandbox v1"));
                 app.UseMigrationsEndPoint();
-
             }
             else
             {

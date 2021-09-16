@@ -6,8 +6,6 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore;
 
-
-
 namespace AspNetSandbox.Pages.Shared
 {
     /// <summary>Provides the ability to edit book data.</summary>
@@ -49,6 +47,7 @@ namespace AspNetSandbox.Pages.Shared
             {
                 return Page();
             }
+
             this.context.Attach(Book).State = EntityState.Modified;
             try
             {
