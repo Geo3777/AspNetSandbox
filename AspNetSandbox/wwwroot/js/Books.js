@@ -11,7 +11,7 @@ connection.start().then(function () {
 connection.on("BookCreated", function (book) {
     console.log(`Book Created: ${JSON.stringify(book)}`);
 
-    $("tbody").append(`<tr>
+    $("tbody").append(`<tr id="${book.id}">
                 <td>
                     ${book.title}
                 </td>
@@ -26,6 +26,32 @@ connection.on("BookCreated", function (book) {
                     <a href="/Books/Details?id=${book.id}">Details</a> |
                     <a href="/Books/Delete?id=${book.id}">Delete</a>
                 </td>
-            </tr >`);
+            </tr>`);
+});
+
+connection.on("BookUpdated", function (book) {
+    console.log(`Book Updated: ${JSON.stringify(book)}​​​​​`);
+    var row = document.getElementById(`book-${book.id}​​​​​`);
+    row.innerHTML = `
+        <td>
+            ${book.title}​​​​​
+        </td>
+        <td>
+            ${book.author}​​​​​
+        </td>
+        <td>
+            ${book.language}​​​​​
+        </td>
+        <td>
+            <a href="/Books/Edit?id=${book.id}​​​​​">Edit</a> |
+            <a href="/Books/Details?id=${book.id}​​​​​">Details</a> |
+            <a href="/Books/Delete?id=${book.id}​​​​​">Delete</a>
+        </td>`
+});
+
+
+connection.on("BookDeleted", function (book) {
+    console.log(`Book Deleted: ${JSON.stringify(book)}`);
+    $(`#${book.id}`).remove();
 });
 

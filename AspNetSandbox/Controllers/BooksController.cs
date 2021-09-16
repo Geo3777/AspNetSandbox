@@ -91,7 +91,7 @@ namespace AspNetSandBox.Controllers
         {
             Book book = mapper.Map<Book>(bookDto);
             repository.Put(id, book);
-            hubContext.Clients.All.SendAsync("BookUpdate", bookDto);
+            hubContext.Clients.All.SendAsync("BookUpdated", bookDto);
             return Ok();
         }
 
