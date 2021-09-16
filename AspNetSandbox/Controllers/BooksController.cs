@@ -9,6 +9,7 @@ using AspNetSandbox;
 using Microsoft.AspNetCore.SignalR;
 using AspNetSandbox.DTOs;
 using AutoMapper;
+using System.Linq;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 namespace AspNetSandBox.Controllers
@@ -38,9 +39,11 @@ namespace AspNetSandBox.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            Book book = (Book)repository.Get();
-            ReadAllBooksDto booksDto = mapper.Map<ReadAllBooksDto>(book);
+            //IEnumerable<Book> BookList = new IEnumerable<Book>();
+            Book BookList = (Book)repository.Get();
+            ReadBookDto booksDto = mapper.Map<ReadBookDto>(BookList);
             return Ok(booksDto);
+            //return Ok(repository.Get());
         }
 
         // GET api/<ValuesController>/5
