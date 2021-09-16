@@ -30,8 +30,8 @@ connection.on("BookCreated", function (book) {
 });
 
 connection.on("BookUpdated", function (book) {
-    console.log(`Book Updated: ${JSON.stringify(book)}​​​​​`);
-    var row = document.getElementById(`${book.id}​​​​​`);
+    console.log(`Book Updated: ${JSON.stringify(book)}`);
+    var row = document.getElementById(`${book.id}`);
     row.innerHTML = `
         <td>
             ${book.title}
@@ -46,7 +46,7 @@ connection.on("BookUpdated", function (book) {
             <a href="/Books/Edit?id=${book.id}">Edit</a> |
             <a href="/Books/Details?id=${book.id}">Details</a> |
             <a href="/Books/Delete?id=${book.id}">Delete</a>
-       </td>`
+       </td>`;
 });
 
 
