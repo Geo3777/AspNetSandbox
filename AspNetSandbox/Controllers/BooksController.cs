@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using AspNetSandbox;
 using AspNetSandbox.DTOs;
 using AspNetSandbox.Models;
@@ -34,8 +35,8 @@ namespace AspNetSandBox.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            Book BookList = (Book)repository.Get();
-            ReadBookDto booksDto = mapper.Map<ReadBookDto>(BookList);
+            var BookList = repository.Get();
+            var booksDto = mapper.Map<IEnumerable<Book>, IEnumerable<ReadBookDto>>(BookList);
             return Ok(booksDto);
 
             // return Ok(repository.Get());
