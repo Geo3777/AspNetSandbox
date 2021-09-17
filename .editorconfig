@@ -65,3 +65,6 @@ dotnet_analyzer_diagnostic.category-Style.severity = silent
 
 # SA1413: Use trailing comma in multi-line initializers
 dotnet_diagnostic.SA1413.severity = silent
+
+# SA1202: Elements should be ordered by access
+dotnet_diagnostic.SA1202.severity = silent

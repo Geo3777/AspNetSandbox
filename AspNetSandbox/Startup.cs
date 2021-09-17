@@ -62,15 +62,20 @@ namespace AspNetSandbox
             var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
             if (connectionString != null)
             {
-                return connectionString;
+                return ConvertConnectionString(connectionString);
             }
             return Configuration.GetConnectionString("DefaultConnection");
         }
 
         public static string ConvertConnectionString(string connectionString)
         {
-            var uri = new Uri("postgres://owbzprkracmbpm:5525837926b7aa60ea650d77b3383ad07821403434984f78271db789e9bce9ce@ec2-54-155-61-133.eu-west-1.compute.amazonaws.com:5432/dfmep9uk56m67r");
-            string connection = $"Database={uri.AbsolutePath.TrimStart('/')}; Host={uri.Host}; Port={uri.Port}; User Id={uri.UserInfo.Split(":")[0]}; Password={uri.UserInfo.Split(":")[1]}; SSL Mode=Require; Trust Server Certificate=true;";
+            var uri = new Uri(connectionString);
+            string Database = uri.AbsolutePath.TrimStart('/');
+            string Host = uri.Host;
+            int Port = uri.Port;
+            string UserId = uri.UserInfo.Split(":")[0];
+            string Password = uri.UserInfo.Split(":")[1];
+            string connection = $"Database={Database}; Host={Host}; Port={Port}; User Id={UserId}; Password={Password}; SSL Mode=Require; Trust Server Certificate=true;";
             return connection;
         }
 
