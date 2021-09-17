@@ -35,8 +35,8 @@ namespace AspNetSandBox.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var BookList = repository.Get();
-            var booksDto = mapper.Map<IEnumerable<Book>, IEnumerable<ReadBookDto>>(BookList);
+            var AllBooks = repository.Get();
+            var booksDto = mapper.Map<IEnumerable<Book>, IEnumerable<ReadBookDto>>(AllBooks);
             return Ok(booksDto);
 
             // return Ok(repository.Get());
@@ -92,7 +92,6 @@ namespace AspNetSandBox.Controllers
         {
             Book book = mapper.Map<Book>(bookDto);
             repository.Put(id, book);
-            hubContext.Clients.All.SendAsync("BookUpdated", bookDto);
             return Ok();
         }
 
@@ -106,7 +105,6 @@ namespace AspNetSandBox.Controllers
             Book book = repository.Get(id);
             ReadBookDto bookDto = mapper.Map<ReadBookDto>(book);
             repository.Delete(bookDto.Id);
-            hubContext.Clients.All.SendAsync("BookDelete", id);
             return Ok();
         }
     }

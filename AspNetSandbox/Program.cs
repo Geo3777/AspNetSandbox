@@ -13,6 +13,7 @@ namespace AspNetSandbox
     {
         public static void Main(string[] args)
         {
+            Console.WriteLine(Environment.GetEnvironmentVariable("WINDIR"));
             CreateHostBuilder(args).Build().Run();
         }
 

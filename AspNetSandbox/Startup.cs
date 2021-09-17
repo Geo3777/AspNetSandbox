@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Infrastructure;
 
 namespace AspNetSandbox
 {
@@ -45,8 +46,8 @@ namespace AspNetSandbox
             });
             services.AddScoped<IBooksSRepository, DbBooksRepository>();
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseNpgsql(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                options.UseNpgsql(GetConnectionString()));
+            Configuration.GetConnectionString("DefaultConnection");
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -54,6 +55,22 @@ namespace AspNetSandbox
             services.AddControllersWithViews();
             services.AddSignalR();
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+        }
+
+        private string GetConnectionString()
+        {
+            var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL");
+            if (connectionString != null)
+            {
+                return connectionString;
+            }
+            return Configuration.GetConnectionString("DefaultConnection");
+        }
+
+        public static string ConvertConnextioSring(string connectionString)
+        {
+            string s = "a";
+            return s;
         }
 
         /// <summary>his method gets called by the runtime. Use this method to configure the HTTP request pipeline.</summary>
