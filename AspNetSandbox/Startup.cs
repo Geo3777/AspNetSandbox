@@ -102,6 +102,21 @@ namespace AspNetSandbox
             defaultFilesOptions.DefaultFileNames = new List<string>();
             defaultFilesOptions.DefaultFileNames.Add("htmlpage.html");
             app.UseStaticFiles();
+
+            using (var serviceScope = app.ApplicationServices.CreateScope())
+            {
+                var applicationDbContext = serviceScope.ServiceProvider.GetService<ApplicationDbContext>();
+                if (applicationDbContext.Book.Any())
+                {
+                    Console.WriteLine("The books are there");
+
+                }
+                else
+                {
+                    Console.WriteLine("No books");
+                }
+            }
+
             app.UseDefaultFiles(defaultFilesOptions);
             app.UseStaticFiles();
             app.UseRouting();
