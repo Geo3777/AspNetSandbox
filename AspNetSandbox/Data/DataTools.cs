@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using AspNetSandbox.Models;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,11 @@ namespace AspNetSandbox.Data
                 else
                 {
                     Console.WriteLine("No books");
+                    var book1 = new Book();
+                    applicationDbContext.Add(book1);
+                    var book2 = new Book();
+                    applicationDbContext.Add(book2);
+                    applicationDbContext.SaveChanges();
                 }
             }
         }
