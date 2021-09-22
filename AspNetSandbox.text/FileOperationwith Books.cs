@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -38,6 +39,21 @@ namespace AspNetSandbox.text
   ""AllowedHosts"": ""*""
 }
 ");
+        }
+        [Fact]
+        public void ReadFileTest()
+        {
+            using (var fs = File.OpenRead("newSettings.json"))
+            {
+                byte[] b = new byte[1024];
+                UTF8Encoding temp = new UTF8Encoding(true);
+
+                while (fs.Read(b, 0, b.Length) > 0)
+                {
+                    var s = temp.GetString(b);
+                    Console.WriteLine(s);
+                }
+            }
         }
     }
 }
