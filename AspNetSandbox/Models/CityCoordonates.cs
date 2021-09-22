@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 
-namespace AspNetSandbox
+namespace AspNetSandbox.Models
 {
     public class CityCoordonates
     {

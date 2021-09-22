@@ -1,7 +1,7 @@
 using System;
 using Newtonsoft.Json.Linq;
 
-namespace AspNetSandbox
+namespace AspNetSandbox.Models
 {
     public class WeatherForecast
     {
