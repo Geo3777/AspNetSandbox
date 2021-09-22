@@ -1,4 +1,4 @@
-##George sandbox project for back-end course1
+# George sandbox project for back-end course
 name | value
 --- | ---
 language | C#
