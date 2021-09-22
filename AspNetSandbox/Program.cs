@@ -16,6 +16,8 @@ namespace AspNetSandbox
         {
             [Option('v', "verbose", Required = false, HelpText = "Set output to verbose messages.")]
             public bool Verbose { get; set; }
+            [Option('c', "ConnectionString", Required = false, HelpText = "Set connection String.")]
+            public bool ConnectionString { get; set; }
         }
 
         public static int Main(string[] args)
@@ -31,6 +33,16 @@ namespace AspNetSandbox
                        else
                        {
                            Console.WriteLine($"Current Arguments: -v {o.Verbose}");
+                           Console.WriteLine("Quick Start Example!");
+                       }
+                       if (o.ConnectionString)
+                       {
+                           Console.WriteLine($"ConnectionString output enabled. Current Arguments: -c {o.ConnectionString}");
+                           Console.WriteLine("Quick Start Example! App is in Connection mode!");
+                       }
+                       else
+                       {
+                           Console.WriteLine($"Current Arguments: -c {o.ConnectionString}");
                            Console.WriteLine("Quick Start Example!");
                        }
                    });

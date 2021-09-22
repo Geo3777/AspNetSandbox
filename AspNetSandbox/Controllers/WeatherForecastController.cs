@@ -30,7 +30,6 @@ namespace AspNetSandbox.Controllers
             client.Timeout = -1;
             var request = new RestRequest(Method.GET);
             IRestResponse response = client.Execute(request);
-            Console.WriteLine(response.Content);
             return ConvertResponseToWeatherForecast(response.Content);
         }
 
