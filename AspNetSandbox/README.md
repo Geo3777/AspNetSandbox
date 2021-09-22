@@ -1,4 +1,15 @@
-﻿## How to run in Docker from the commandline
+﻿#George sandbox project for back-end course
+name | value
+--- | ---
+language | C#
+databse | postgres
+deployed | https://dashboard.heroku.com/apps/aspnetsandbox2
+
+
+
+## How to run in Docker from the commandline
+
+Navigate to [AspNetSandbox](AspNetSandbox) directory
 
 Build in container
 ```
@@ -8,17 +19,17 @@ docker build -t web_george .
 to run
 
 ```
-docker run -d -p 8081:80 --name web_container_borys web_george
+docker run -d -p 8081:80 --name web_container_george web_george
 ```
 
 to stop container
 ```
-docker stop web_container_borys
+docker stop web_container_george
 ```
 
 to remove container
 ```
-docker rm web_container_borys
+docker rm web_container_george
 ```
 
 ## Deploy to heroku
@@ -36,10 +47,10 @@ heroku container:login
 
 Push container
 ```
-heroku container:push -a aspnetsandbox3 web
+heroku container:push -a aspnetsandbox2 web
 ```
 
 Release the container
 ```
-heroku container:release -a aspnetsandbox3 web
+heroku container:release -a aspnetsandbox2 web
 ```
