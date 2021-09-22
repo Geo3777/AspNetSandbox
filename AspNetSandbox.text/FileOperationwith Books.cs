@@ -40,7 +40,7 @@ namespace AspNetSandbox.text
 }
 ");
         }
-        /*
+
         [Fact]
         public void ReadFileTest()
         {
@@ -56,6 +56,6 @@ namespace AspNetSandbox.text
                 }
             }
         }
-        */
+
     }
 }
