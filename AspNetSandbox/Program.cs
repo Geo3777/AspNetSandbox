@@ -18,6 +18,8 @@ namespace AspNetSandbox
             public bool Verbose { get; set; }
             [Option('c', "ConnectionString", Required = false, HelpText = "Set connection String.")]
             public bool ConnectionString { get; set; }
+            [Option('?', "HelpArgs", Required = false, HelpText = "Displays commandline arguments")]
+            public bool HelpArgs { get; set; }
         }
 
         public static int Main(string[] args)
@@ -43,6 +45,17 @@ namespace AspNetSandbox
                        else
                        {
                            Console.WriteLine($"Current Arguments: -c {o.ConnectionString}");
+                           Console.WriteLine("Quick Start Example!");
+                       }
+                       if (o.HelpArgs)
+                       {
+                           Console.WriteLine($"Help output enabled. Current Arguments: -? {o.HelpArgs}");
+                           Console.WriteLine("Quick Start Example! App is in Help mode!");
+                       }
+                       else
+                       {
+                           Console.WriteLine($"Current Arguments: -? {o.HelpArgs}");
+
                            Console.WriteLine("Quick Start Example!");
                        }
                    });
