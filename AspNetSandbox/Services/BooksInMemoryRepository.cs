@@ -4,7 +4,7 @@ using AspNetSandbox.Models;
 
 namespace AspNetSandbox.Services
 {
-    public class BooksInMemoryRepository : IBooksSRepository
+    public class BooksInMemoryRepository : IBooksRepository
     {
         private static int id;
         private List<Book> books;

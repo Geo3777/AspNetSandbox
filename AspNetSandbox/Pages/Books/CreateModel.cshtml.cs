@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using AspNetSandbox.Hubs;
 using AspNetSandbox.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;

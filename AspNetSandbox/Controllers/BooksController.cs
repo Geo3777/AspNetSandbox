@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using AspNetSandbox;
 using AspNetSandbox.DTOs;
+using AspNetSandbox.Hubs;
 using AspNetSandbox.Models;
+using AspNetSandbox.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
@@ -16,12 +18,12 @@ namespace AspNetSandBox.Controllers
     [ApiController]
     public class BooksController : ControllerBase
     {
-        private readonly IBooksSRepository repository;
+        private readonly IBooksRepository repository;
         private readonly IHubContext<MessageHub> hubContext;
         private readonly IMapper mapper;
 
         /// <summary>Initializes a new instance of the <see cref="BooksController" /> class.</summary>
-        public BooksController(IBooksSRepository repository, IHubContext<MessageHub> hubContext, IMapper mapper)
+        public BooksController(IBooksRepository repository, IHubContext<MessageHub> hubContext, IMapper mapper)
         {
             this.hubContext = hubContext;
             this.mapper = mapper;

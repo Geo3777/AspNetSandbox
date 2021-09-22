@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using AspNetSandbox.Data;
+using AspNetSandbox.Hubs;
 using AspNetSandbox.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -44,7 +45,7 @@ namespace AspNetSandbox
                 var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
                 c.IncludeXmlComments(xmlPath, includeControllerXmlComments: true);
             });
-            services.AddScoped<IBooksSRepository, DbBooksRepository>();
+            services.AddScoped<IBooksRepository, DbBooksRepository>();
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseNpgsql(GetConnectionString()));
             Configuration.GetConnectionString("DefaultConnection");

@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using AspNetSandbox.Models;
 
-namespace AspNetSandbox
+namespace AspNetSandbox.Services
 {
-    public interface IBooksSRepository
+    public interface IBooksRepository
     {
         void Delete(int id);
 

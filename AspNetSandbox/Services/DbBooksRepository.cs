@@ -5,7 +5,7 @@ using AspNetSandbox.Models;
 
 namespace AspNetSandbox.Services
 {
-    public class DbBooksRepository : IBooksSRepository
+    public class DbBooksRepository : IBooksRepository
     {
         private readonly ApplicationDbContext context;
 
